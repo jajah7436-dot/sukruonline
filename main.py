@@ -13,11 +13,11 @@ def init_db():
 
 init_db()
 
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def home():
     return "Sykru Login API Calisiyor!"
 
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods=['POST'], strict_slashes=False)
 def register():
     data = request.json
     user = data.get('username')
@@ -32,7 +32,7 @@ def register():
     except:
         return jsonify({"status": "error", "message": "Kullanici adi zaten var"}), 400
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST'], strict_slashes=False)
 def login():
     data = request.json
     user = data.get('username')
