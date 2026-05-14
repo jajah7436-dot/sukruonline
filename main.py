@@ -3,6 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 
+# Veritabanı başlatma
 def init_db():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
